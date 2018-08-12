@@ -1,0 +1,35 @@
+<p>
+  <br/>
+  <br/> Place order here
+  <br/>
+</p>
+
+<div>
+
+  <form novalidate [formGroup]='OrderFormGroup' (ngSubmit)="onSubmit()">
+    <div>
+      <label for="drop_down"> Select Product </label>
+      <select formControlName="productId">
+        <option *ngFor="let product of products" [value]="product.product_id" id="drop_down">{{product.product_name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="product_order"> Ordered Value </label>
+      <input type="number" class="form-control" formControlName="product_order" id="product_order">
+    </div>
+
+    <div *ngIf='errorMessage' class='alert alert-danger'>
+      Error: {{ errorMessage }}
+    </div>
+
+    <div *ngIf='successMessage' class='alert alert-success'>
+      Error: {{ successMessage }}
+    </div>
+
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>

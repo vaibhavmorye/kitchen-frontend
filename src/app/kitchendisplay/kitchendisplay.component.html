@@ -1,0 +1,52 @@
+<h1>
+  kitchen Display 
+</h1>
+
+<!-- IProductOrder= {
+  "order_id": 1,
+  "product_id": 1,
+  "product_name": 'Rice',
+  "predicted_qty": 10,
+  "completed_qty": 2,
+  "ordered_qty": 1
+} -->
+
+<div>
+  <div class='panel panel-primary'>
+    <div class='panel-heading'>
+    </div>
+    <div class='panel-body'>
+      <div class='table-responsive'>
+        <table class='table' *ngIf='productOrders && productOrders.length'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Created-till-now</th>
+              <th>Predicted</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let product of productOrders'>
+              <td>
+                {{product.product_name}}
+              </td>
+              <td>
+                {{product.predicted_qty}}
+              </td>
+              <td>{{product.completed_qty}}</td>
+              <td>{{product.ordered_qty}}</td>
+              <td>
+                <button type="submit" (click)='orderComplete(product)'>Add Completed order</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div>
+  <br/>
+  <br/>
+  <p>
+    Add your prediction here
+    <br/>
+  </p>
+  <div>
+
+    <form novalidate [formGroup]='predictionFormGroup' (ngSubmit)="onSubmit()">
+      <div>
+        <label for="drop_down"> Select Product </label>
+        <select formControlName="productId">
+          <option *ngFor="let product of products" [value]="product.product_id" id="drop_down">{{product.product_name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="product_input"> Predicted Value </label>
+        <input type="text" class="form-control" formControlName="product_input">
+      </div>
+
+      <div *ngIf='errorMessage' class='alert alert-danger'>
+        Error: {{ errorMessage }}
+      </div>
+
+      <div *ngIf='successMessage' class='alert alert-success'>
+        Error: {{ successMessage }}
+      </div>
+
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

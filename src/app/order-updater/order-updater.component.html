@@ -1,0 +1,39 @@
+<div>
+  <p>
+    Add new food item or update prediction for item for today.
+  </p>
+
+  <div>
+    <h1>Add Product</h1>
+    <form novalidate [formGroup]='productFormGroup' (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="product_input"> Product name </label>
+        <input type="text" class="form-control" formControlName="productName">
+      </div>
+
+      <div *ngIf='errorMessage' class='alert alert-danger'>
+        Error: {{ errorMessage }}
+      </div>
+
+      <div *ngIf='successMessage' class='alert alert-success'>
+        Error: {{ successMessage }}
+      </div>
+
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div>
+    <app-prediction> </app-prediction>
+  </div>
+
+  <div>
+    <app-order-component></app-order-component>
+  </div>
+  
+</div>
