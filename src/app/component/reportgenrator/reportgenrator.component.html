@@ -1,0 +1,69 @@
+<p>
+  report genrator
+</p>
+
+
+<div>
+  <div class='panel panel-primary'>
+    <div class='panel-heading'>
+    </div>
+    <div class='panel-body'>
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <form [formGroup]='reportgenratorForm' (ngSubmit)="onSubmit()">
+              <tr>
+                <th>
+                  <label>From date</label>
+                  <input type="date" class="form-control" formControlName="from_date">
+                </th>
+                <th>
+                  <label>To date</label>
+                  <input type="date" class="form-control" formControlName="to_date">
+                </th>
+                <th>
+                  <button type="submit">Genrate Report</button>
+                </th>
+              </tr>
+            </form>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+      </div>
+      <div class='panel-body'>
+        <div class='table-responsive'>
+          <table class='table' *ngIf='report && report.length'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Ordered Quantity</th>
+                <th>Created-till-now</th>
+                <th>Predicted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let product of report'>
+                <td>
+                  {{product.product_name}}
+                </td>
+                <td>
+                  {{product.ordered_qty}}
+                </td>
+                <td>{{product.completed_qty}}</td>
+                <td>{{product.predicted_qty}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button  *ngIf='report && report.length' (click)= "downloadReport()">Download Report</button>
+  </div>

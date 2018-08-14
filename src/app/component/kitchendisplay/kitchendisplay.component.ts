@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../shared/services/products.service';
-import { IProductOrder } from '../model/productOrder';
-import { LiveFeedsService } from '../shared/services/live-feeds.service';
-import * as _ from 'lodash';
-import { element } from '../../../node_modules/protractor';
+import { ProductsService } from '../../shared/services/products.service';
+import { IProductOrder } from '../../model/productOrder';
+import { LiveFeedsService } from '../../shared/services/live-feeds.service';
+
 
 @Component({
   selector: 'app-kitchendisplay',
@@ -35,7 +34,8 @@ export class KitchendisplayComponent implements OnInit {
 
   updateProductOrders(update) {
     var newdata = JSON.parse(update)[0];
-    this.productOrders.find(item => item.order_id == newdata.order_id).completed_qty = newdata.completed_qty;
+   // console.log(newdata);
+    this.productOrders.find(item => item.product_id == newdata.product_id).completed_qty = newdata.completed_qty;
 
   }
 }

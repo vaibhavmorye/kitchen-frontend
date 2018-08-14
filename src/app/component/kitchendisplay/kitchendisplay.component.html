@@ -1,5 +1,5 @@
 <h1>
-  kitchen Display 
+  kitchen Display
 </h1>
 
 <!-- IProductOrder= {
@@ -21,7 +21,7 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Quantity</th>
+              <th>Ordered Quantity</th>
               <th>Created-till-now</th>
               <th>Predicted</th>
               <th>Status</th>
@@ -33,10 +33,10 @@
                 {{product.product_name}}
               </td>
               <td>
-                {{product.predicted_qty}}
+                {{product.ordered_qty}}
               </td>
               <td>{{product.completed_qty}}</td>
-              <td>{{product.ordered_qty}}</td>
+              <td>{{product.predicted_qty}}</td>
               <td>
                 <button type="submit" (click)='orderComplete(product)'>Add Completed order</button>
               </td>

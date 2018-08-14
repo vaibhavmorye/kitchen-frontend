@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class SocketService {
 
   private socket;
-  ws_url = 'http://localhost:3000';
+  ws_url = 'http://localhost:5000';
 
   constructor() { }
 

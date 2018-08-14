@@ -9,15 +9,15 @@
 
       <div class="form-group">
         <label for="product_input"> Product name </label>
-        <input type="text" class="form-control" formControlName="productName">
+        <input type="text" class="form-control" formControlName="product_name">
       </div>
 
       <div *ngIf='errorMessage' class='alert alert-danger'>
-        Error: {{ errorMessage }}
+        <span> Error: {{ errorMessage }}</span>
       </div>
 
       <div *ngIf='successMessage' class='alert alert-success'>
-        Error: {{ successMessage }}
+        {{ successMessage }}
       </div>
 
 
@@ -35,5 +35,5 @@
   <div>
     <app-order-component></app-order-component>
   </div>
-  
+
 </div>

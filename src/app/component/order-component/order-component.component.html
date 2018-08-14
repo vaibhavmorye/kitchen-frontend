@@ -10,7 +10,8 @@
     <div>
       <label for="drop_down"> Select Product </label>
       <select formControlName="productId">
-        <option *ngFor="let product of products" [value]="product.product_id" id="drop_down">{{product.product_name}}</option>
+        <option *ngFor="let product of products" [ngValue]="product" id="drop_down">{{product.product_name}}</option>
+       <span></span>
       </select>
     </div>
     <div class="form-group">
@@ -19,11 +20,11 @@
     </div>
 
     <div *ngIf='errorMessage' class='alert alert-danger'>
-      Error: {{ errorMessage }}
+      Error: {{ errorMessage.status }}
     </div>
 
     <div *ngIf='successMessage' class='alert alert-success'>
-      Error: {{ successMessage }}
+     {{ successMessage }}
     </div>
 
 
