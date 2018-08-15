@@ -33,8 +33,10 @@ export class KitchendisplayComponent implements OnInit {
   }
 
   updateProductOrders(update) {
-    var newdata = JSON.parse(update)[0];
-   // console.log(newdata);
+   console.log(update);
+   console.log(this.productOrders);
+    var newdata = JSON.parse(update).rows[0];
+   //console.log(newdata);
     this.productOrders.find(item => item.product_id == newdata.product_id).completed_qty = newdata.completed_qty;
 
   }

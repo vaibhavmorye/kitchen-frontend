@@ -21,7 +21,6 @@ export class ProductsService {
   }
 
   getOrderes(): Observable<any> {
-    let result;
     let url = this._kitchen_api + 'getallFoodItems';
     return this._http.get<IProductOrder[]>(url).pipe(tap(/* data => console.log('All' + JSON.stringify(data) */),
       catchError(error => {
@@ -41,7 +40,7 @@ export class ProductsService {
   }
 
   placeOrder(order) {
-   // console.log("place order" + JSON.stringify(order));
+    // console.log("place order" + JSON.stringify(order));
     let url = this._kitchen_api + "placeOrder";
     return this._http.post(url, order, this.httpOptions)
       .pipe(
@@ -50,8 +49,7 @@ export class ProductsService {
         }));
   }
 
-  addPrediction(prediction)
-  {
+  addPrediction(prediction) {
     let url = this._kitchen_api + "addPrediction";
     return this._http.post(url, prediction, this.httpOptions)
       .pipe(
@@ -60,7 +58,7 @@ export class ProductsService {
         }));
   }
 
-  generateReports(dates){
+  generateReports(dates) {
     let url = this._kitchen_api + "generatereports";
     return this._http.post(url, dates, this.httpOptions)
       .pipe(
@@ -70,12 +68,11 @@ export class ProductsService {
 
   }
 
-  getAllFoodName(){
-    let result;
+  getAllFoodName() {
     let url = this._kitchen_api + 'getAllFoodName';
     return this._http.get<IProductOrder[]>(url).pipe(tap(/* data => console.log('All' + JSON.stringify(data) */),
       catchError(error => {
-        return this.handleError(error)
+        return this.handleError(error);
       }));
   }
   private handleError(err: HttpErrorResponse) {

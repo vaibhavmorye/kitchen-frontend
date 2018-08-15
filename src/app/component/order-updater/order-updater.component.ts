@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';7
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from '../../shared/services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-updater',
@@ -13,7 +14,7 @@ export class OrderUpdaterComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
 
-  constructor(private _productService: ProductsService) { }
+  constructor(private _productService: ProductsService, private _router: Router) { }
 
   ngOnInit() {
     this.productFormGroup = new FormGroup({ product_name: new FormControl('', Validators.required) });
@@ -25,6 +26,7 @@ export class OrderUpdaterComponent implements OnInit {
     console.log(product);
     this._productService.addProduct( this.productFormGroup.value).subscribe(res=>{
       this.successMessage = res.status;
+      this._router.navigate(['/home']);
     },(err) => {
       this.errorMessage = err;
       console.log(err);
