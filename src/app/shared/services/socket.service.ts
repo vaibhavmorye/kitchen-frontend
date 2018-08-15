@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class SocketService {
 
   private socket;
-  ws_url = 'http://localhost:5000';
-
+  //ws_url = 'http://localhost:5000';
+  ws_url ="https://kitchen-app-api.herokuapp.com";
   constructor() { }
 
   connect(): Rx.Subject<MessageEvent> {

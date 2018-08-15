@@ -12,7 +12,9 @@ import { IProductOrder } from '../../model/productOrder';
 })
 export class ProductsService {
 
-  private _kitchen_api = "http://localhost:5000/"
+  //private _kitchen_api = "http://localhost:5000/";
+  private _kitchen_api = "https://kitchen-app-api.herokuapp.com/";
+
   readonly httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
